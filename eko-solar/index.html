@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EKO SOLAR — Atlanta Solar Installation, Troubleshooting & Repair</title>
+  <meta name="description" content="Atlanta's full-service solar company. EKO SOLAR installs new solar systems and diagnoses and repairs underperforming ones. Get a free consultation.">
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Tokens ── */
+    :root {
+      --green: #2E7D32;
+      --green-hover: #1B5E20;
+      --dark: #1a1a1a;
+      --gray-bg: #f5f5f5;
+      --white: #ffffff;
+      --max-w: 1100px;
+      --section-py: 80px;
+      --radius: 8px;
+    }
+
+    /* ── Utility ── */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 32px;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:hover { background: var(--green-hover); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 1.125rem;
+      color: #444;
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid #e0e0e0;
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav .btn { padding: 10px 24px; font-size: 0.9rem; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #e8f5e9 0%, #f5f5f5 100%);
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 span { color: var(--green); }
+    .hero .hero-sub {
+      font-size: 1.2rem;
+      color: #444;
+      max-width: 620px;
+      margin: 0 auto 32px;
+    }
+    .hero .hero-note {
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* ── Services ── */
+    .services {
+      padding: var(--section-py) 0;
+      background: var(--white);
+    }
+    .services .body-copy {
+      font-size: 1.05rem;
+      color: #333;
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+    .bullet-list {
+      list-style: none;
+      max-width: 720px;
+    }
+    .bullet-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      color: #333;
+    }
+    .bullet-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* ── About ── */
+    .about {
+      padding: var(--section-py) 0;
+      background: var(--gray-bg);
+    }
+    .about .body-copy {
+      font-size: 1.05rem;
+      color: #333;
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+    .callout {
+      background: var(--white);
+      border-left: 4px solid var(--green);
+      padding: 24px 28px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: 1.05rem;
+      color: #333;
+      max-width: 720px;
+    }
+    .callout strong { color: var(--green); }
+
+    /* ── What You Get ── */
+    .what-you-get {
+      padding: var(--section-py) 0;
+      background: var(--white);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: var(--gray-bg);
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ── How It Works ── */
+    .how-it-works {
+      padding: var(--section-py) 0;
+      background: var(--gray-bg);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .step p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* ── Why Us ── */
+    .why-us {
+      padding: var(--section-py) 0;
+      background: var(--white);
+    }
+    .why-us-list {
+      list-style: none;
+      max-width: 720px;
+    }
+    .why-us-list li {
+      margin-bottom: 18px;
+      font-size: 1.05rem;
+      color: #333;
+      padding-left: 28px;
+      position: relative;
+    }
+    .why-us-list li::before {
+      content: "\2605";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+    .why-us-list li strong { color: var(--dark); }
+
+    /* ── FAQ ── */
+    .faq {
+      padding: var(--section-py) 0;
+      background: var(--gray-bg);
+    }
+    .faq-list { max-width: 720px; }
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--dark);
+      font-family: inherit;
+    }
+    .faq-q:hover { background: #fafafa; }
+    .faq-q .arrow {
+      font-size: 1.2rem;
+      transition: transform 0.25s;
+      color: var(--green);
+    }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+    .faq-a-inner {
+      padding: 0 24px 20px;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ── CTA / Form ── */
+    .cta-final {
+      padding: var(--section-py) 0;
+      background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+      color: #fff;
+      text-align: center;
+    }
+    .cta-final .section-heading { color: #fff; }
+    .cta-final .section-sub { color: rgba(255,255,255,0.85); margin-left: auto; margin-right: auto; }
+
+    .form-wrap {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px 32px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .form-wrap label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+    .form-wrap input,
+    .form-wrap textarea,
+    .form-wrap select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+      background: #fff;
+    }
+    .form-wrap input:focus,
+    .form-wrap textarea:focus,
+    .form-wrap select:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+    .form-wrap textarea { resize: vertical; min-height: 90px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-wrap .btn { width: 100%; text-align: center; padding: 16px; font-size: 1.05rem; }
+    .form-subtext {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 12px;
+    }
+
+    /* Thank you overlay */
+    .thank-you {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    .thank-you.show { display: block; }
+    .thank-you h3 {
+      font-size: 1.5rem;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .thank-you p { color: #333; font-size: 1.05rem; }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 32px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      background: var(--dark);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      :root { --section-py: 56px; }
+
+      .hero h1 { font-size: 2rem; }
+      .hero .hero-sub { font-size: 1.05rem; }
+
+      .section-heading { font-size: 1.6rem; }
+      .section-sub { font-size: 1rem; }
+
+      .cards { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 40px; }
+
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-wrap { padding: 28px 20px; }
+
+      .nav .btn { padding: 8px 16px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav class="nav">
+    <div class="container">
+      <div class="nav-logo">EKO <span>SOLAR</span></div>
+      <a href="#cta-final" class="btn">Get Free Consultation</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <h1>Atlanta's Full-Service <span>Solar</span> Company</h1>
+      <p class="hero-sub">New installations. Troubleshooting. Repairs. Whether you're going solar for the first time or your existing system isn't performing, EKO SOLAR has you covered.</p>
+      <a href="#cta-final" class="btn">Get Your Free Consultation</a>
+      <p class="hero-note">No pressure. No long-term contracts. Just honest solar advice.</p>
+    </div>
+  </section>
+
+  <!-- ── What We Do ── -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-heading">Installation, Troubleshooting & Repair — All Under One Roof</h2>
+      <p class="body-copy">Most solar companies only want to sell you a new system. We do that too — but we also fix the ones that aren't working. Whether you need a brand-new installation or someone to figure out why your panels stopped producing, EKO SOLAR handles the full lifecycle of your solar investment.</p>
+      <ul class="bullet-list">
+        <li>New solar installations designed and built for Atlanta's climate and your home's layout</li>
+        <li>Troubleshooting for systems that are underperforming, throwing errors, or completely offline</li>
+        <li>Targeted repairs — inverters, optimizers, wiring, monitoring — without pushing a full replacement</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── About EKO SOLAR ── -->
+  <section id="about-eko-solar" class="about">
+    <div class="container">
+      <h2 class="section-heading">About EKO SOLAR</h2>
+      <p class="body-copy">EKO SOLAR is an Atlanta-based solar company that does things differently. We install new systems built to last — and we service the ones already on your roof, even if someone else put them there. When your original installer disappears or your warranty company stops returning calls, we step in.</p>
+      <div class="callout">
+        <strong>One company for the full solar lifecycle.</strong> From your first consultation to year-twenty troubleshooting, we're the only solar partner you need. Local team, straight answers, no runaround.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What You Get ── -->
+  <section id="what-you-get" class="what-you-get">
+    <div class="container">
+      <h2 class="section-heading">What You Get</h2>
+      <p class="section-sub">Whether it's a new install or a fix, every engagement includes:</p>
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">☀️</div>
+          <h3>Custom Solar Design</h3>
+          <p>New installs are engineered for your roof, your usage, and Atlanta's sun patterns — not a cookie-cutter template.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔍</div>
+          <h3>System Diagnostics</h3>
+          <p>For existing systems, we review monitoring data, inspect hardware on-site, and pinpoint exactly what's going wrong.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔧</div>
+          <h3>Expert Repairs</h3>
+          <p>Inverter swaps, optimizer replacements, wiring fixes, monitoring resets — we repair what's broken, not upsell what isn't.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h3>Clear Reporting</h3>
+          <p>You get a written summary of what was found, what was done, and what to expect from your system going forward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works ── -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <h2 class="section-heading">How It Works</h2>
+      <p class="section-sub">Three steps — whether you're installing or repairing.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Tell Us What You Need</h3>
+          <p>Fill out the form below. Going solar for the first time? Existing system acting up? Give us the details.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We Assess & Plan</h3>
+          <p>For new installs, we design your system. For repairs, we diagnose the issue remotely and on-site as needed.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>We Get It Done</h3>
+          <p>New system installed or existing system repaired — with a clear timeline, honest pricing, and no surprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Why Us ── -->
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <h2 class="section-heading">Why Atlanta Homeowners Choose EKO SOLAR</h2>
+      <p class="section-sub">Full-service solar, done right.</p>
+      <ul class="why-us-list">
+        <li><strong>Install & Repair —</strong> We're one of the few Atlanta solar companies that handles both new installations and service on existing systems.</li>
+        <li><strong>Brand-Agnostic —</strong> SolarEdge, Enphase, SMA, Tesla — we install and repair all major brands. You're never locked in.</li>
+        <li><strong>Straight Talk —</strong> No high-pressure sales. No inflated quotes. We tell you what you need, what it costs, and whether it's worth it.</li>
+        <li><strong>Local & Responsive —</strong> Atlanta-based team. We answer the phone, show up on time, and follow through until the job is done.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <h2 class="section-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            How do I know if I should repair my system or install a new one?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            We'll assess your current system and give you an honest recommendation. If a targeted repair gets you back to full production, that's what we'll suggest. We only recommend a new system when repair isn't cost-effective.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Can you fix a system another company installed?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Yes. Most of our repair clients came to us because their original installer is gone or unresponsive. We work on all brands and system types regardless of who installed them.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            How long does a new solar installation take?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Most residential installs take 1–3 days on the roof, depending on system size. The full process — design, permitting, install, inspection — typically runs 4–8 weeks. We keep you informed at every stage.
+          </div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Do you offer financing for new installations?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Yes. We partner with several financing providers to offer flexible payment options including $0-down plans. We'll walk you through the numbers during your consultation so you know exactly what to expect.
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA / Form ── -->
+  <section id="cta-final" class="cta-final">
+    <div class="container">
+      <h2 class="section-heading">Get Your Free Solar Consultation</h2>
+      <p class="section-sub">Tell us what you need — new install, troubleshooting, or repair. We'll review your details and reach out with next steps.</p>
+
+      <div class="form-wrap">
+        <form id="estimate-form">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Jane Doe">
+
+          <div class="form-row">
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="jane@email.com">
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(404) 555-1234">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div>
+              <label for="address">Street Address</label>
+              <input type="text" id="address" name="address" required placeholder="123 Peachtree St">
+            </div>
+            <div>
+              <label for="zip">ZIP Code</label>
+              <input type="text" id="zip" name="zip" required placeholder="30301" pattern="[0-9]{5}" title="5-digit ZIP code">
+            </div>
+          </div>
+
+          <label for="message">How can we help?</label>
+          <textarea id="message" name="message" placeholder="New installation, system not producing, inverter errors, high bills, need a second opinion... tell us what's going on."></textarea>
+
+          <button type="submit" class="btn">Request My Free Consultation</button>
+          <p class="form-subtext">Your info stays with us. No spam, ever.</p>
+        </form>
+
+        <div class="thank-you" id="thank-you">
+          <h3>Thank You!</h3>
+          <p>We received your request. An EKO SOLAR team member will reach out within 24 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2026 EKO SOLAR &mdash; Atlanta, GA. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // ── FAQ Accordion ──
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = btn.parentElement;
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Form Submit → VoxlyLaunchpad ──
+    document.getElementById('estimate-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Submitting\u2026';
+
+      fetch('https://www.voxlylaunchpad.com/api/leads/roof-estimate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          full_name:      form.name.value.trim(),
+          email:          form.email.value.trim(),
+          phone:          form.phone.value.trim(),
+          street_address: form.address.value.trim(),
+          zip:            form.zip.value.trim(),
+          roof_issue:     form.message.value.trim(),
+          source:         'eko-solar-landing',
+          campaign:       'atlanta-solar-full-service'
+        })
+      }).then(function(res) {
+        return res.json();
+      }).then(function(data) {
+        if (data.success) {
+          form.style.display = 'none';
+          document.getElementById('thank-you').classList.add('show');
+        } else {
+          alert(data.error || 'Something went wrong. Please try again.');
+          btn.disabled = false;
+          btn.textContent = 'Request My Free Consultation';
+        }
+      }).catch(function() {
+        alert('Network error. Please check your connection and try again.');
+        btn.disabled = false;
+        btn.textContent = 'Request My Free Consultation';
+      });
+    });
+  </script>
+
+</body>
+</html>
